@@ -76,7 +76,7 @@ class LoginController extends Controller
             return response()->json(['error'=>$validator->errors()], 401);            
         }
 
-        if($user->phone_number == $phone){
+        if($user && $user->phone_number == $phone){
             $newStatus = Status::create([
                 'status' => $status,
                 'user_id' => $user_id,
